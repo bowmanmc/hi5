@@ -1,0 +1,23 @@
+@import './colors';
+@import './typography';
+
+
+html, body {
+    @include fontsize($fontsize-normal);
+
+    font-family: $fontstack-body;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $fontstack-headings;
+    font-weight: $fontweight-bold;
+}
+
+#__next {
+    height: 100%;
+    margin: 0;
+    width: 100%;
+}

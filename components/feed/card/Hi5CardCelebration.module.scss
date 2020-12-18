@@ -1,0 +1,27 @@
+@import '../../../styles/colors';
+@import '../../../styles/typography';
+
+$Hi5CC__UserSize: 92px;
+.Hi5CardCelebration {
+    align-items: center;
+    display: flex;
+    padding: 1.0em 0;
+
+    &__user {
+        img {
+            border-radius: 50%;
+            height: $Hi5CC__UserSize;
+            width: $Hi5CC__UserSize;
+        }
+    }
+
+    &__gif {
+        flex: 1;
+        padding: 0 1.0em;
+
+        img {
+            height: auto;
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+// Hat tip to: https://seesparkbox.com/foundry/sassy_grayscale
+$color-white: #ffffff;
+$color-gray-98: #f3f3f3;
+$color-gray-95: #ededed;
+$color-gray-90: #e3e3e3;
+$color-gray-85: #d9d9d9;
+$color-gray-80: #cccccc;
+$color-gray-75: #c0c0c0;
+$color-gray-70: #b0b0b0;
+$color-gray-60: #999999;
+$color-gray-50: #808080;
+$color-gray-45: #727272;
+$color-gray-40: #696969;
+$color-gray-30: #4d4d4d;
+$color-gray-20: #363636;
+$color-gray-15: #222222;
+$color-gray-10: #171717;
+$color-black: #000000;
+
+//Mile 2 Unique Colors
+$color-dark-green: #016848;
+$color-medium-green: rgba($color-dark-green, 0.88);
+$color-dark-blue: #1b3a43;
+$color-light-green: #d0df63;
+$color-light-blue: #c5e8f3;
+$color-mile2-green: #016948;
+
+$color-navbar-bg: $color-dark-blue;
+$color-navbar-txt: $color-gray-90;
+$color-navbar-alt: $color-gray-70;
+$color-navbar-draft: $color-light-green;
+
+$color-signin-border: $color-gray-50;
+$color-signin-headline: $color-dark-blue;
+$color-signin-txt: $color-gray-50;
+
+$color-feed-shadow: $color-gray-70;
+$color-feed-gray: $color-gray-70;
+$color-feed-txt-alt: $color-gray-40;

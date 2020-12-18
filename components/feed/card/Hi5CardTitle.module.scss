@@ -1,0 +1,20 @@
+@import '../../../styles/colors';
+@import '../../../styles/typography';
+
+.Hi5CardTitle {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+
+    &__action {
+        @include fontsize($fontsize-normal);
+        flex: 1;
+    }
+
+    &__date {
+        @include fontsize($fontsize-small);
+        color: $color-feed-gray;
+        text-transform: uppercase;
+        text-align: right;
+    }
+}
