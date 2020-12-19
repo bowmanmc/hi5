@@ -1,25 +1,37 @@
-import Head from 'next/head';
+import { Fab } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { MdAdd } from 'react-icons/md';
 import { useSession } from 'next-auth/client';
 
 import Feed from '../components/feed';
-import Navbar from '../components/navbar2';
+import Navbar from '../components/navbar';
 import SignInScreen from '../components/SignInScreen';
 
-import styles from './index.module.scss';
+const useStyles = makeStyles(theme => ({
+    fab: {
+        position: 'fixed',
+        bottom: theme.spacing(4),
+        right: theme.spacing(4),
+    },
+}));
 
 const HomePage = props => {
     const [session, loading] = useSession();
     if (!session && !loading) {
         return <SignInScreen />;
     }
+    const styles = useStyles();
 
     console.log('Got Hi5s: ' + JSON.stringify(props.feed));
 
     return (
-        <div className={styles.HomePage}>
+        <>
             <Navbar />
             <Feed items={props.feed} />
-        </div>
+            <Fab href="/draft" className={styles.fab} color="primary" aria-label="Give a Hi5!">
+                <MdAdd />
+            </Fab>
+        </>
     );
 };
 export default HomePage;

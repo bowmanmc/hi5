@@ -1,29 +1,60 @@
-import { Avatar } from '@material-ui/core';
 import { signOut } from 'next-auth/client';
+import { Avatar } from '@material-ui/core';
+import { Button } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
-import styles from './UserInfo.module.scss';
+const useStyles = makeStyles(theme => ({
+    UserInfo: {
+        display: 'flex',
+        flexDirection: 'row',
+        padding: '0 0.25em',
+    },
+    UserInfoPic: {
+        alignItems: 'center',
+        display: 'flex',
+        justifyContent: 'center',
+    },
+    UserInfoText: {
+        borderRight: `1px solid ${theme.palette.primary.light}`,
+        display: 'flex',
+        flexDirection: 'column',
+        padding: '0 0.5em',
+    },
+    UserInfoName: {
+
+    },
+    UserInfoEmail: {
+
+    },
+    UserInfoSignout: {
+        alignItems: 'center',
+        display: 'flex',
+        justifyContent: 'center',
+        paddingLeft: '0.5em',
+    },
+}));
 
 const UserInfo = ({ user }) => {
+    const styles = useStyles();
+
     return (
         <div className={styles.UserInfo}>
-            <div className={styles.UserInfo__pic}>
+            <div className={styles.UserInfoPic}>
                 <Avatar
                     src={user.image}
                     alt={user.name}
                 />
             </div>
-            <div className={styles.UserInfo__name}>
-                <div className={styles.UserName}>
-                    <span className={styles.UserName__name}>
-                        {user.name}
-                    </span>
-                    <span className={styles.UserName__email}>
-                        {user.email}
-                    </span>
+            <div className={styles.UserInfoText}>
+                <div className={styles.UserInfoName}>
+                    {user.name}
+                </div>
+                <div className={styles.UserInfoEmail}>
+                    {user.email}
                 </div>
             </div>
-            <div className={styles.UserInfo__signout}>
-                <button onClick={signOut}>Sign out</button>
+            <div className={styles.UserInfoSignout}>
+                <Button size="small" onClick={signOut}>Sign out</Button>
             </div>
         </div>
     );
