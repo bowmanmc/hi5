@@ -3,14 +3,14 @@ import { makeStyles } from '@material-ui/core/styles';
 import { MdAdd } from 'react-icons/md';
 import { useSession } from 'next-auth/client';
 
-import Feed from '../components/feed';
+import Feed from '../components/feed2';
 import Navbar from '../components/navbar';
 import SignInScreen from '../components/SignInScreen';
 
 const useStyles = makeStyles(theme => ({
     fab: {
         position: 'fixed',
-        bottom: theme.spacing(4),
+        top: theme.spacing(12),
         right: theme.spacing(4),
     },
 }));

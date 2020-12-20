@@ -4,9 +4,9 @@ import { CardActions } from '@material-ui/core';
 import { CardContent } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { AiFillGoogleCircle } from 'react-icons/ai';
-import { signIn } from 'next-auth/client'
+import { signIn } from 'next-auth/client';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
     SignInScreen: {
         alignItems: 'center',
         display: 'flex',
@@ -25,7 +25,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const SignInScreen = () => {
-
     const styles = useStyles();
 
     return (
@@ -35,9 +34,15 @@ const SignInScreen = () => {
                     <h1>Welcome to the Hi5 Application!</h1>
                 </CardContent>
                 <CardActions className={styles.SignInScreenActions}>
-                    <Button variant="contained" color="primary" onClick={() => signIn('google', {
-                        callbackUrl: '/'
-                    })}>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={() =>
+                            signIn('google', {
+                                callbackUrl: '/',
+                            })
+                        }
+                    >
                         <AiFillGoogleCircle />
                         <span className={styles.ButtonText}>
                             Sign In with Google
