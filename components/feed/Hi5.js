@@ -4,6 +4,9 @@ import { CardContent } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
+import Hi5Footer from './Hi5Footer';
+
+
 const useStyles = makeStyles((theme) => ({
     Hi5: {
         margin: '1.0em',
@@ -30,7 +33,7 @@ const Hi5 = ({ hi5 }) => {
                 <Typography variant="body1">{hi5.description}</Typography>
             </CardContent>
             <CardActions>
-
+                <Hi5Footer hi5={hi5} />
             </CardActions>
         </Card>
     );

@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { MdAdd } from 'react-icons/md';
 import { useSession } from 'next-auth/client';
 
-import Feed from '../components/feed2';
+import Feed from '../components/feed';
 import Navbar from '../components/navbar';
 import SignInScreen from '../components/SignInScreen';
 
