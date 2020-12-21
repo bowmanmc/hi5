@@ -22,8 +22,6 @@ const HomePage = props => {
     }
     const styles = useStyles();
 
-    console.log('Got Hi5s: ' + JSON.stringify(props.feed));
-
     return (
         <>
             <Navbar />

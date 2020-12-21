@@ -15,35 +15,19 @@ const useStyles = makeStyles((theme) => ({
 
 const Hi5 = ({ hi5 }) => {
     const styles = useStyles();
-    const author = {
-        "name":"Michael Bowman",
-        "email":"bowmanmc@gmail.com",
-        "image":"https://lh3.googleusercontent.com/a-/AOh14GgTz-IGyg84BmipB95xJo4zOns41rBsISQBQoqFYg=s96-c"
-    };
 
-    const recipient = "jhorwitz@miletwo.us";
-
-    const h5 = {
-        author, recipient
-    };
     return (
         <Card className={styles.Hi5}>
             <img
                 className={styles.gif}
-                src={'https://media.giphy.com/media/4QFAH0qZ0LQnIwVYKT/giphy.gif'}
+                src={hi5.gif}
                 title={'Fun gif of a High Five'}
             />
             <CardContent>
                 <Typography variant="h6">
-                    {recipient.name || recipient} got a Hi5 from {author.name || author}!!!
+                    {hi5.recipientname || hi5.recipient} got a Hi5 from {hi5.authorname || hi5.author}!!!
                 </Typography>
-                <Typography variant="body1">
-                    Quis rerum et deserunt dolores hic. Quibusdam
-                    dolorum eaque est alias excepturi qui maiores.
-                    Laborum est accusamus et assumenda veniam facilis
-                    quis. Autem sed laudantium non. Doloribus ut
-                    rerum suscipit praesentium doloremque.
-                </Typography>
+                <Typography variant="body1">{hi5.description}</Typography>
             </CardContent>
             <CardActions>
 
