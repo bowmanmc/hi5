@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
 
 const UserInfo = ({ user }) => {
     const styles = useStyles();
-
+    console.log(JSON.stringify(user));
     return (
         <div className={styles.UserInfo}>
             <div className={styles.UserInfoPic}>

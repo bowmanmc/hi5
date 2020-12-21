@@ -11,7 +11,7 @@ import { MenuItem } from '@material-ui/core';
 import { Select } from '@material-ui/core';
 import { TextField } from '@material-ui/core';
 
-import Navbar from '../components/navbar2';
+import Navbar from '../components/navbar';
 import SignInScreen from '../components/SignInScreen';
 
 import styles from './draft.module.scss';
@@ -34,18 +34,22 @@ const DraftPage = (props) => {
     // Form Variables
     const [formVariables, setFormVariables] = useState(FORM_DEFAULTS);
 
-
     const submitData = async (e) => {
         e.preventDefault();
         try {
             const author = session?.user?.email;
-            const body = { author, recipient, category, description };
+            const body = {
+                ...formVariables,
+                author
+            };
+            console.log('Posting body: ' + JSON.stringify(body));
             const res = await fetch(`http://localhost:3000/api/hi5`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(body),
             });
             const data = await res.json();
+            console.log('Got response: ' + JSON.stringify(data));
             await router.push('/');
         } catch (error) {
             console.error(error);
@@ -66,7 +70,7 @@ const DraftPage = (props) => {
             <Navbar />
             <div className={styles.DraftPage}>
                 <h1>Give a Friend a Hi5!</h1>
-                <form noValidate onSubmit={submitData}>
+                <form noValidate>
                     <FormControl variant="outlined" margin="normal">
                         <TextField
                             id="recipient"
@@ -128,7 +132,7 @@ const DraftPage = (props) => {
                         />
                     </FormControl>
 
-                    <Button variant="contained" startIcon={<GiHighFive />}>
+                    <Button variant="contained" onClick={submitData} startIcon={<GiHighFive />}>
                         Submit
                     </Button>
                 </form>
