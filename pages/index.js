@@ -25,7 +25,7 @@ const HomePage = props => {
     return (
         <>
             <Navbar />
-            <Feed items={props.feed} />
+            <Feed items={props.feed} user={session?.user} />
             <Fab href="/draft" className={styles.fab} color="primary" aria-label="Give a Hi5!">
                 <MdAdd />
             </Fab>

@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const Hi5 = ({ hi5 }) => {
+const Hi5 = ({ hi5, user }) => {
     const styles = useStyles();
 
     return (
@@ -33,7 +33,7 @@ const Hi5 = ({ hi5 }) => {
                 <Typography variant="body1">{hi5.description}</Typography>
             </CardContent>
             <CardActions>
-                <Hi5Footer hi5={hi5} />
+                <Hi5Footer hi5={hi5} user={user} />
             </CardActions>
         </Card>
     );

@@ -11,15 +11,43 @@ export default async function handle(req, res) {
      */
     const results = await prisma.$queryRaw`
         select
-            hi5.*,
-            author.name as authorname,
-            author.pic as authorpic,
-            recipient.name as recipientname,
-            recipient.pic as recipientpic
-        from hi5
-        left join "user" author on hi5.author = author.email
-        left join "user" recipient on hi5.recipient = recipient.email
-        order by hi5.created desc;
+            h5.id,
+            h5.recipient,
+            h5.author,
+            h5.corevalue,
+            h5.impact,
+            h5.description,
+            h5.gif,
+            h5.created,
+            h5.updated,
+            string_agg(l.user, ',') likes
+        from (
+            select
+                h.*,
+                author.name as authorname,
+                author.pic as authorpic,
+                recipient.name as recipientname,
+                recipient.pic as recipientpic
+            from hi5 as h
+            left join "user" author on h.author = author.email
+            left join "user" recipient on h.recipient = recipient.email
+        ) as h5
+        left join "like" as l on h5.id = l."hi5Id"
+        group by
+            h5.id,
+            h5.recipient,
+            h5.author,
+            h5.corevalue,
+            h5.impact,
+            h5.description,
+            h5.gif,
+            h5.created,
+            h5.updated,
+            authorname,
+            authorpic,
+            recipientname,
+            recipientpic
+        order by h5.created desc
     `;
     res.json(results);
 };

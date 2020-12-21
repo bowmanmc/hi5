@@ -18,10 +18,18 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'flex-start',
         textAlign: 'center',
     },
+    Count: {
+        paddingLeft: '0.25em',
+    }
 }));
 
-const Hi5Footer = ({ hi5 }) => {
+const Hi5Footer = ({ hi5, user }) => {
     const styles = useStyles();
+
+    let likes = [];
+    if (hi5.likes) {
+        likes = hi5.likes.split(',');
+    }
 
     return (
         <div className={styles.Hi5Footer}>
@@ -29,7 +37,8 @@ const Hi5Footer = ({ hi5 }) => {
                 <Typography variant="button">Likes</Typography>
                 <Typography variant="caption">
                     <Button variant="text">
-                        <AiOutlineHeart /> 42
+                        { likes.indexOf(user?.email) < 0 ? <AiOutlineHeart /> : <AiFillHeart /> }
+                        <span className={styles.Count}>{likes.length}</span>
                     </Button>
 
                 </Typography>

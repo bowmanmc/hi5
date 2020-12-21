@@ -115,6 +115,13 @@
     {
       "tag": "CreateField",
       "model": "hi5",
+      "field": "likes",
+      "type": "like",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateField",
+      "model": "hi5",
       "field": "created",
       "type": "DateTime",
       "arity": "Required"
@@ -161,6 +168,145 @@
         },
         "directive": "updatedAt"
       }
+    },
+    {
+      "tag": "CreateModel",
+      "model": "like"
+    },
+    {
+      "tag": "CreateField",
+      "model": "like",
+      "field": "id",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "like",
+          "field": "id"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "like",
+          "field": "id"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "like",
+          "field": "id"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "autoincrement()"
+    },
+    {
+      "tag": "CreateField",
+      "model": "like",
+      "field": "hi5",
+      "type": "hi5",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "like",
+          "field": "hi5"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "like",
+          "field": "hi5"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[hi5Id]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "like",
+          "field": "hi5"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "like",
+      "field": "hi5Id",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "like",
+      "field": "user",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "like",
+      "field": "created",
+      "type": "DateTime",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "like",
+          "field": "created"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "like",
+          "field": "created"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "now()"
     },
     {
       "tag": "CreateModel",

@@ -11,13 +11,13 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const Feed = ({items}) => {
+const Feed = ({ items, user }) => {
     const styles = useStyles();
 
     return (
         <div className={styles.feed}>
             {items.map(h5 => {
-                return <Hi5 key={h5.id} hi5={h5} />
+                return <Hi5 key={h5.id} hi5={h5} user={user} />
             })}
         </div>
     );
