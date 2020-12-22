@@ -10,11 +10,10 @@ import { InputLabel } from '@material-ui/core';
 import { MenuItem } from '@material-ui/core';
 import { Select } from '@material-ui/core';
 import { TextField } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 import Navbar from '../components/navbar';
 import SignInScreen from '../components/SignInScreen';
-
-import styles from './draft.module.scss';
 
 const FORM_DEFAULTS = {
     recipient: '',
@@ -23,6 +22,17 @@ const FORM_DEFAULTS = {
     description: ''
 };
 
+const useStyles = makeStyles(theme => ({
+    DraftPage: {
+        margin: 'auto',
+        maxWidth: '512px',
+    },
+    DraftForm: {
+        display: 'flex',
+        flexDirection: 'column',
+    },
+}));
+
 const DraftPage = (props) => {
     const [session, loading] = useSession();
     if (!session && !loading) {
@@ -30,6 +40,7 @@ const DraftPage = (props) => {
     }
 
     const router = useRouter();
+    const styles = useStyles();
 
     // Form Variables
     const [formVariables, setFormVariables] = useState(FORM_DEFAULTS);
@@ -70,7 +81,7 @@ const DraftPage = (props) => {
             <Navbar />
             <div className={styles.DraftPage}>
                 <h1>Give a Friend a Hi5!</h1>
-                <form noValidate>
+                <form noValidate className={styles.DraftForm}>
                     <FormControl variant="outlined" margin="normal">
                         <TextField
                             id="recipient"

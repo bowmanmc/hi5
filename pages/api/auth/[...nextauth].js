@@ -1,6 +1,8 @@
 import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
 
+import updateUser from '../../../lib/updateUser';
+
 // For more information on each option (and a full list of options) go to
 // https://next-auth.js.org/configuration/options
 const options = {
@@ -47,7 +49,6 @@ const options = {
     // https://next-auth.js.org/configuration/pages
     pages: {
         // signIn: '/api/auth/signin',  // Displays signin buttons
-        signIn: '/signin',
         // signOut: '/api/auth/signout', // Displays form with sign out button
         // error: '/api/auth/error', // Error code passed in query string as ?error=
         // verifyRequest: '/api/auth/verify-request', // Used for check email page
@@ -59,6 +60,7 @@ const options = {
     // https://next-auth.js.org/configuration/callbacks
     callbacks: {
         // signIn: async (user, account, profile) => { return Promise.resolve(true) },
+        signIn: updateUser,
         // redirect: async (url, baseUrl) => { return Promise.resolve(baseUrl) },
         // session: async (session, user) => { return Promise.resolve(session) },
         // jwt: async (token, user, account, profile, isNewUser) => { return Promise.resolve(token) }
@@ -69,7 +71,7 @@ const options = {
     events: {},
 
     // Enable debug messages in the console if you are having problems
-    debug: true,
+    debug: false,
 };
 
 const handler = (req, res) => NextAuth(req, res, options);
