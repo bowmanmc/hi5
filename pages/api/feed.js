@@ -13,7 +13,11 @@ export default async function handle(req, res) {
         select
             h5.id,
             h5.recipient,
+            h5.recipientname,
+            h5.recipientpic,
             h5.author,
+            h5.authorname,
+            h5.authorpic,
             h5.corevalue,
             h5.impact,
             h5.description,
