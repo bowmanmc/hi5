@@ -1,8 +1,7 @@
-import { AiFillHeart } from 'react-icons/ai';
-import { AiOutlineHeart } from 'react-icons/ai';
-import { Button } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+
+import LikesButton from './LikesButton';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -26,21 +25,12 @@ const useStyles = makeStyles((theme) => ({
 const Hi5Footer = ({ hi5, user }) => {
     const styles = useStyles();
 
-    let likes = [];
-    if (hi5.likes) {
-        likes = hi5.likes.split(',');
-    }
-
     return (
         <div className={styles.Hi5Footer}>
             <div className={styles.Metric}>
                 <Typography variant="button">Likes</Typography>
                 <Typography variant="caption">
-                    <Button variant="text">
-                        { likes.indexOf(user?.email) < 0 ? <AiOutlineHeart /> : <AiFillHeart /> }
-                        <span className={styles.Count}>{likes.length}</span>
-                    </Button>
-
+                    <LikesButton hi5={hi5} user={user} likes={hi5?.likes} />
                 </Typography>
             </div>
             <div className={styles.Metric}>
