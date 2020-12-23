@@ -2,13 +2,20 @@ import { useState } from 'react';
 import { AiFillHeart } from 'react-icons/ai';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { Button } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useSession } from 'next-auth/client';
 
 
 const useStyles = makeStyles((theme) => ({
-    Count: {
-        paddingLeft: '0.25em',
+    LikesButton: {
+        alignItems: 'center',
+        display: 'flex',
+        justifyContent: 'center',
+        padding: '0 1.0em',
+    },
+    HeartIcon: {
+        marginRight: '0.25em',
     }
 }));
 
@@ -51,9 +58,14 @@ const LikesButton = ({ hi5 }) => {
     };
 
     return (
-        <Button variant="text" onClick={toggleLike}>
-            { likes.indexOf(user?.email) < 0 ? <AiOutlineHeart /> : <AiFillHeart /> }
-            <span className={styles.Count}>{likes.length}</span>
+        <Button variant="text" onClick={toggleLike} className={styles.LikesButton}>
+
+            { likes.indexOf(user?.email) < 0 ?
+                <AiOutlineHeart className={styles.HeartIcon} /> :
+                <AiFillHeart className={styles.HeartIcon} /> }
+            <Typography variant="caption">
+                {likes.length}
+            </Typography>
         </Button>
     );
 };
