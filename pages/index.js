@@ -9,6 +9,9 @@ import Navbar from '../components/navbar';
 import SignInScreen from '../components/SignInScreen';
 
 const useStyles = makeStyles(theme => ({
+    page: {
+        backgroundColor: theme.palette.gray.light,
+    },
     fab: {
         position: 'fixed',
         top: theme.spacing(12),
@@ -26,7 +29,7 @@ const HomePage = props => {
     const router = useRouter();
 
     return (
-        <>
+        <div className={styles.page}>
             <Navbar />
             <Feed items={props.feed} />
             <Fab className={styles.fab} color="primary" aria-label="Give a Hi5!" onClick={() => {
@@ -34,7 +37,7 @@ const HomePage = props => {
             }}>
                 <MdAdd />
             </Fab>
-        </>
+        </div>
     );
 };
 export default HomePage;
