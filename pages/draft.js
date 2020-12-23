@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/client';
 import { GiHighFive } from 'react-icons/gi';
 
 import { Button } from '@material-ui/core';
-import { CssBaseline } from '@material-ui/core';
 import { FormControl } from '@material-ui/core';
 import { InputLabel } from '@material-ui/core';
 import { MenuItem } from '@material-ui/core';
@@ -77,7 +76,6 @@ const DraftPage = (props) => {
 
       return (
         <>
-            <CssBaseline />
             <Navbar />
             <div className={styles.DraftPage}>
                 <h1>Give a Friend a Hi5!</h1>

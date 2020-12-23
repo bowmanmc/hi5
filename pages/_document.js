@@ -1,8 +1,9 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { CssBaseline } from '@material-ui/core';
 import { ServerStyleSheets } from '@material-ui/styles';
-import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
-const theme = responsiveFontSizes(createMuiTheme());
+import theme from '../lib/theme';
+
 
 // Fixes SSR with Material UI styles - https://developerhandbook.com/react/how-to-set-up-nextjs-material-ui/
 class MyDocument extends Document {
@@ -11,40 +12,31 @@ class MyDocument extends Document {
             <Html>
                 <Head>
                     <meta charSet="utf-8" />
-                    <meta
-                        name="viewport"
-                        content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
-                    />
-                    <meta
-                        name="theme-color"
-                        content={theme.palette.primary.main}
-                    />
-                    <link
-                        rel="stylesheet"
-                        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"
-                    />
+                    <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no" />
+                    <meta name="theme-color" content={theme.palette.primary.main} />
+                    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
                     <style jsx global>
                         {`
-                            html,
-                            body {
-                                height: 100%;
-                                width: 100%;
-                            }
-                            *,
-                            *:after,
-                            *:before {
-                                box-sizing: border-box;
-                            }
-                            body {
-                                font-family: 'Roboto', 'Helvetica', 'Arial',
-                                    sans-serif;
-                                font-size: 1rem;
-                                margin: 0;
-                            }
+                        html,
+                        body {
+                            height: 100%;
+                            width: 100%;
+                        }
+                        *,
+                        *:after,
+                        *:before {
+                            box-sizing: border-box;
+                        }
+                        body {
+                            font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+                            font-size: 1rem;
+                            margin: 0;
+                        }
                         `}
                     </style>
                 </Head>
                 <body>
+                    <CssBaseline />
                     <Main />
                     <NextScript />
                 </body>

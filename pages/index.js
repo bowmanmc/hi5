@@ -1,6 +1,7 @@
 import { Fab } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { MdAdd } from 'react-icons/md';
+import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/client';
 
 import Feed from '../components/feed';
@@ -22,11 +23,15 @@ const HomePage = props => {
     }
     const styles = useStyles();
 
+    const router = useRouter();
+
     return (
         <>
             <Navbar />
-            <Feed items={props.feed} user={session?.user} />
-            <Fab href="/draft" className={styles.fab} color="primary" aria-label="Give a Hi5!">
+            <Feed items={props.feed} />
+            <Fab className={styles.fab} color="primary" aria-label="Give a Hi5!" onClick={() => {
+                router.push('/draft');
+            }}>
                 <MdAdd />
             </Fab>
         </>
