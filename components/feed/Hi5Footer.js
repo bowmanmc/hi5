@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const Hi5Footer = ({ hi5, user }) => {
+const Hi5Footer = ({ hi5 }) => {
     const styles = useStyles();
 
     return (
@@ -30,7 +30,7 @@ const Hi5Footer = ({ hi5, user }) => {
             <div className={styles.Metric}>
                 <Typography variant="button">Likes</Typography>
                 <Typography variant="caption">
-                    <LikesButton hi5={hi5} user={user} likes={hi5?.likes} />
+                    <LikesButton hi5={hi5} likes={hi5?.likes} />
                 </Typography>
             </div>
             <div className={styles.Metric}>

@@ -3,6 +3,7 @@ import { AiFillHeart } from 'react-icons/ai';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { useSession } from 'next-auth/client';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -11,8 +12,10 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const LikesButton = ({ hi5, user }) => {
+const LikesButton = ({ hi5 }) => {
     const styles = useStyles();
+    const [session] = useSession();
+    const user = session?.user;
 
     let hlikes = [];
     if (hi5?.likes) {
