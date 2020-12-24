@@ -22,6 +22,14 @@ const useStyles = makeStyles((theme) => ({
     ButtonText: {
         padding: '0 0.5em',
     },
+    LogoCtr: {
+        alignItems: 'center',
+        display: 'flex',
+        justifyContent: 'center',
+    },
+    Logo: {
+        height: '200px',
+    },
 }));
 
 const SignInScreen = () => {
@@ -30,8 +38,8 @@ const SignInScreen = () => {
     return (
         <div className={styles.SignInScreen}>
             <Card className={styles.SignInScreenCard}>
-                <CardContent>
-                    <h1>Welcome to the Hi5 Application!</h1>
+                <CardContent className={styles.LogoCtr}>
+                    <img className={styles.Logo} src="/assets/hi5.png" alt="Hi5" />
                 </CardContent>
                 <CardActions className={styles.SignInScreenActions}>
                     <Button

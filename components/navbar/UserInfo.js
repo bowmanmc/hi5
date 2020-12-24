@@ -21,10 +21,11 @@ const useStyles = makeStyles(theme => ({
         padding: '0 0.5em',
     },
     UserInfoName: {
-
+        ...theme.typography.subtitle1,
     },
     UserInfoEmail: {
-
+        ...theme.typography.caption,
+        color: theme.palette.gray.light,
     },
     UserInfoSignout: {
         alignItems: 'center',
@@ -32,6 +33,15 @@ const useStyles = makeStyles(theme => ({
         justifyContent: 'center',
         paddingLeft: '0.5em',
     },
+    UserInfoSignoutButton: {
+        ...theme.typography.caption,
+        color: theme.palette.primary.contrastText,
+    },
+    Avatar: {
+        border: `1px solid ${theme.palette.primary.light}`,
+        height: '48px',
+        width: '48px',
+    }
 }));
 
 const UserInfo = ({ user }) => {
@@ -40,7 +50,7 @@ const UserInfo = ({ user }) => {
     return (
         <div className={styles.UserInfo}>
             <div className={styles.UserInfoPic}>
-                <Avatar
+                <Avatar className={styles.Avatar}
                     src={user.image}
                     alt={user.name}
                 />
@@ -54,7 +64,7 @@ const UserInfo = ({ user }) => {
                 </div>
             </div>
             <div className={styles.UserInfoSignout}>
-                <Button size="small" onClick={signOut}>Sign out</Button>
+                <Button className={styles.UserInfoSignoutButton} size="small" onClick={signOut}>Sign out</Button>
             </div>
         </div>
     );

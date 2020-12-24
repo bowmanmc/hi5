@@ -18,7 +18,8 @@ class MyDocument extends Document {
                     <style jsx global>
                         {`
                         html,
-                        body {
+                        body,
+                        #__next {
                             height: 100%;
                             width: 100%;
                         }
@@ -28,10 +29,12 @@ class MyDocument extends Document {
                             box-sizing: border-box;
                         }
                         body {
+                            background-color: ${theme.palette.gray.light};
                             font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
                             font-size: 1rem;
                             margin: 0;
                         }
+
                         `}
                     </style>
                 </Head>

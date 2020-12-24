@@ -13,6 +13,9 @@ const useStyles = makeStyles(theme => ({
     toolbar__middle: {
         flex: 1,
     },
+    logo: {
+        height: '48px',
+    },
 }));
 
 const Navbar = props => {
@@ -24,7 +27,7 @@ const Navbar = props => {
             <Toolbar className={styles.toolbar}>
                 <div>
                     <Link href="/">
-                        <a>Hi5!</a>
+                        <a><img className={styles.logo} src="/assets/hi5.png" alt="Hi5" /></a>
                     </Link>
                 </div>
 
