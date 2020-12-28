@@ -85,7 +85,7 @@ const DraftPage = (props) => {
                             id="recipient"
                             name="recipient"
                             fullwidth="true"
-                            label="Recipient"
+                            label="Recipient Email Address"
                             variant="outlined"
                             value={formVariables.recipient}
                             onChange={handleInputChange}

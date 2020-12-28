@@ -19,6 +19,7 @@ const Feed = ({ items }) => {
             {items.map(h5 => {
                 return <Hi5 key={h5.id} hi5={h5} />
             })}
+            {items.length < 1 ? <p>So sad... no high fives yet. :-( </p> : null}
         </div>
     );
 };
