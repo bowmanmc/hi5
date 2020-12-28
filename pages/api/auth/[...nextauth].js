@@ -9,8 +9,8 @@ const options = {
     // https://next-auth.js.org/configuration/providers
     providers: [
         Providers.Google({
-            clientId: '354391708359-em9q2cpp4qfhsvkc9m0cv2j1njhkf0as.apps.googleusercontent.com',//process.env.GOOGLE_ID,
-            clientSecret: 'rTKWrNcE9qVvn8POVOTYhscd',//process.env.GOOGLE_SECRET,
+            clientId: process.env.GOOGLE_ID,
+            clientSecret: process.env.GOOGLE_SECRET,
         }),
     ],
 

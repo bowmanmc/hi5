@@ -1,5 +1,9 @@
 
 # Hi5
+Need some environment variables:
+export GOOGLE_ID='354391708359-em9q2cpp4qfhsvkc9m0cv2j1njhkf0as.apps.googleusercontent.com'
+export GOOGLE_SECRET='rTKWrNcE9qVvn8POVOTYhscd'
+
 
 
 ## Prisma
